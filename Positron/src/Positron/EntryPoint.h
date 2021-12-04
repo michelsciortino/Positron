@@ -6,6 +6,7 @@ extern Positron::Application* Positron::CreateApplication();
 
 int main(int argc, char**argv)
 {
+	Positron::Log::Init();
 	auto app = Positron::CreateApplication();
 	app->Run();
 	delete app;
