@@ -3,18 +3,17 @@
 #include "Core.h"
 
 namespace Positron {
-	class POSITRON_API Application
-	{
-	public:
-		Application();
-		virtual ~Application();
+  class POSITRON_API Application {
+    public:
+    Application();
+    virtual ~Application();
 
-		void Run();
+    virtual void Run();
 
-	private:
+    private:
 
-	};
+  };
 
-	//To be defined in a Client
-	Application* CreateApplication();
+  //To be defined in a Client
+  Application* CreateApplication();
 }
