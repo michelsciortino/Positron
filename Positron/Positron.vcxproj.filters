@@ -4,6 +4,12 @@
     <Filter Include="Positron">
       <UniqueIdentifier>{E304B5C4-CFD1-0FD0-F8EA-FD77E416455E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Positron\Core">
+      <UniqueIdentifier>{1BAF7367-876F-EF9D-50AA-381BBC29347A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Positron\Events">
+      <UniqueIdentifier>{67F33D18-D37E-ABDC-DC8F-2ED1489A07DD}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Positron.h" />
@@ -13,8 +19,29 @@
     <ClInclude Include="src\Positron\Core.h">
       <Filter>Positron</Filter>
     </ClInclude>
+    <ClInclude Include="src\Positron\Core\Geometry.h">
+      <Filter>Positron\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Positron\Core\InputCodes.h">
+      <Filter>Positron\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Positron\EntryPoint.h">
       <Filter>Positron</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Positron\Events\ApplicationEvent.h">
+      <Filter>Positron\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Positron\Events\Event.h">
+      <Filter>Positron\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Positron\Events\KeyEvent.h">
+      <Filter>Positron\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Positron\Events\MouseEvent.h">
+      <Filter>Positron\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Positron\Events\WindowEvent.h">
+      <Filter>Positron\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Positron\Log.h">
       <Filter>Positron</Filter>

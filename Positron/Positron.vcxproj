@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>POSITRON_PLATFORM_WINDOWS;POSITRON_BUILD_DLL;POSITRON_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -99,7 +99,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>POSITRON_PLATFORM_WINDOWS;POSITRON_BUILD_DLL;POSITRON_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -123,7 +123,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>POSITRON_PLATFORM_WINDOWS;POSITRON_BUILD_DLL;POSITRON_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -146,7 +146,14 @@
     <ClInclude Include="src\Positron.h" />
     <ClInclude Include="src\Positron\Application.h" />
     <ClInclude Include="src\Positron\Core.h" />
+    <ClInclude Include="src\Positron\Core\Geometry.h" />
+    <ClInclude Include="src\Positron\Core\InputCodes.h" />
     <ClInclude Include="src\Positron\EntryPoint.h" />
+    <ClInclude Include="src\Positron\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Positron\Events\Event.h" />
+    <ClInclude Include="src\Positron\Events\KeyEvent.h" />
+    <ClInclude Include="src\Positron\Events\MouseEvent.h" />
+    <ClInclude Include="src\Positron\Events\WindowEvent.h" />
     <ClInclude Include="src\Positron\Log.h" />
   </ItemGroup>
   <ItemGroup>
