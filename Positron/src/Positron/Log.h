@@ -6,6 +6,7 @@
 
 #pragma warning(push, 0)
 #include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h"
 #pragma warning(pop)
 
 namespace Positron {
@@ -13,8 +14,8 @@ namespace Positron {
     public:
     static void Init();
 
-    inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; }
-    inline static std::shared_ptr<spdlog::logger>& GetCLientLogger() { return s_ClientLogger; }
+    inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() GET(s_CoreLogger);
+    inline static std::shared_ptr<spdlog::logger>& GetCLientLogger() GET(s_ClientLogger);
 
     private:
     static std::shared_ptr<spdlog::logger> s_CoreLogger;
