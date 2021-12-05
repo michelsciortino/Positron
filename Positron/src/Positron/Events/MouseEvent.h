@@ -3,7 +3,6 @@
 #include "Event.h"
 #include <Positron/Core/InputCodes.h>
 #include <Positron/Core/Geometry.h>
-#include <format>
 
 namespace Positron {
 
@@ -41,7 +40,7 @@ namespace Positron {
     public:
     MouseDownEvent(Input::InputCode code, Point2D point) : MouseButtonEvent(code, point) {}
 
-    inline std::string ToString() const override GET(F("MouseDownEvent: button {}, point {}", m_buttonCode, m_Point.ToString()));
+    inline std::string ToString() const override GET(F("MouseDownEvent: button {}, point {}", m_buttonCode, m_Point));
 
     EVENT_CLASS_TYPE(EventType::MouseButtonDown)
   };
@@ -52,7 +51,7 @@ namespace Positron {
     public:
     MouseUpEvent(Input::InputCode code, Point2D point) : MouseButtonEvent(code, point) {}
 
-    inline std::string ToString() const override GET(F("MouseUpEvent: button {}, point {}", m_buttonCode, m_Point.ToString()));
+    inline std::string ToString() const override GET(F("MouseUpEvent: button {}, point {}", m_buttonCode, m_Point));
 
     EVENT_CLASS_TYPE(EventType::MouseButtonUp)
   };
@@ -63,7 +62,7 @@ namespace Positron {
     public:
     MouseMovedEvent(Point2D point) : MouseEvent(point) {}
 
-    inline std::string ToString() const override GET(F("MouseMovedEvent: point {}", m_Point.ToString()));
+    inline std::string ToString() const override GET(F("MouseMovedEvent: point {}", m_Point));
 
     EVENT_CLASS_TYPE(EventType::MouseMoved)
   };
@@ -73,7 +72,7 @@ namespace Positron {
     public:
     MouseScrolledEvent(Vector2D offset, Point2D point) : MouseEvent(point), m_Offset(offset) {}
 
-    inline std::string ToString() const override GET(F("MouseScrolledEvent: offset {}, point {}", m_Offset.ToString(), m_Point.ToString()));
+    inline std::string ToString() const override GET(F("MouseScrolledEvent: offset {}, point {}", m_Offset, m_Point));
 
     inline Vector2D GetOffset() const GET(m_Offset);
 

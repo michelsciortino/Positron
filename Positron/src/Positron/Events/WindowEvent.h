@@ -1,8 +1,6 @@
 #pragma once
 
 #include "Event.h"
-#include <format>
-
 namespace Positron {
 
   class POSITRON_API WindowEvent : public Event {
@@ -32,7 +30,7 @@ namespace Positron {
 
     inline unsigned int GetHeight() const GET(m_Height);
 
-    inline std::string ToString() const override GET(F("WindowResizeEvent: {},{}", m_Width, m_Height));
+    inline std::string ToString() const override GET(F("WindowResizeEvent: {}, {}", m_Width, m_Height));
 
     EVENT_CLASS_TYPE(EventType::WindowResize)
 

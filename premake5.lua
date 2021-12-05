@@ -19,6 +19,9 @@ project "Positron"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "pch.h"
+	pchsource "%{prj.name}/src/pch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

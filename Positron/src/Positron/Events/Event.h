@@ -2,9 +2,6 @@
 
 #include "Positron/Core.h"
 
-#include <string>
-#include <functional>
-
 namespace Positron {
 
   enum class EventType {

@@ -1,7 +1,5 @@
 #pragma once
 
-#include <memory>
-
 #include "Core.h"
 
 #pragma warning(push, 0)

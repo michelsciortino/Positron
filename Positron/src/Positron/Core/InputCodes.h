@@ -1,7 +1,6 @@
 #pragma once
 
 #include <Positron/Core.h>
-#include <cstdint>
 
 namespace Positron {
 

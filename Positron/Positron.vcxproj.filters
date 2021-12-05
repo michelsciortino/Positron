@@ -46,6 +46,7 @@
     <ClInclude Include="src\Positron\Log.h">
       <Filter>Positron</Filter>
     </ClInclude>
+    <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Positron\Application.cpp">
@@ -54,5 +55,6 @@
     <ClCompile Include="src\Positron\Log.cpp">
       <Filter>Positron</Filter>
     </ClCompile>
+    <ClCompile Include="src\pch.cpp" />
   </ItemGroup>
 </Project>

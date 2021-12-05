@@ -2,7 +2,6 @@
 
 #include "Event.h"
 #include <Positron/Core/InputCodes.h>
-#include <format>
 
 namespace Positron {
 
