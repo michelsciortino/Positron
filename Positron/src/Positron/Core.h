@@ -11,3 +11,7 @@
 #endif
 
 #define BIT(x) (1 << x)
+
+#define GET(x) { return x; }
+
+#define F(...) std::format(__VA_ARGS__)
