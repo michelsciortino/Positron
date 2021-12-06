@@ -1,3 +1,6 @@
 [submodule ".\\Positron\\vendor/spdlog"]
 	path = .\\Positron\\vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule ".\\Positron\\vendor\\GLFW"]
+	path = .\\Positron\\vendor\\GLFW
+	url = https://github.com/michelsciortino/glfw

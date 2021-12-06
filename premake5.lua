@@ -11,6 +11,11 @@ workspace "Positron"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Positron/vendor/GLFW/include"
+
+include "Positron/vendor/GLFW"
+
 project "Positron"
 	location "Positron"
 	kind "SharedLib"
@@ -30,8 +35,15 @@ project "Positron"
 
 	includedirs
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{prj.name}/src"
+		"%{IncludeDir.GLFW}",
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
