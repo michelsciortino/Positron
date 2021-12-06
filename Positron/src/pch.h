@@ -11,6 +11,8 @@
 #include <unordered_set>
 #include <vector>
 
+#include <Positron/Core/Log.h>
+
 #ifdef POSITRON_PLATFORM_WINDOWS
   #include <Windows.h>
 #endif // POSITRON_PLATFORM_WINDOWS
