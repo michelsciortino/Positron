@@ -5,12 +5,12 @@ class Sandbox : public Positron::Application {
   Sandbox() {}
 
   ~Sandbox() {}
-
-  void Run() {
-    LOG_INFO("RUN");
-  }
 };
 
-Positron::Application* Positron::CreateApplication() {
-  return new Sandbox();
+namespace Positron {
+
+  Application* CreateApplication() {
+    return new Sandbox();
+  }
+
 }

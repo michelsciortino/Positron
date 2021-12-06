@@ -22,11 +22,11 @@ namespace Positron {
 }
 
 // Core log macros
-#define POSITRON_CORE_TRACE(...)     ::Positron::Log::GetCoreLogger()->trace(__VA_ARGS__)
-#define POSITRON_CORE_INFO(...)      ::Positron::Log::GetCoreLogger()->info(__VA_ARGS__)
-#define POSITRON_CORE_WARN(...)      ::Positron::Log::GetCoreLogger()->warn(__VA_ARGS__)
-#define POSITRON_CORE_ERROR(...)     ::Positron::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define POSITRON_CORE_CRITICAL(...)  ::Positron::Log::GetCoreLogger()->critical(__VA_ARGS__)
+#define CORE_TRACE(...)     ::Positron::Log::GetCoreLogger()->trace(__VA_ARGS__)
+#define CORE_INFO(...)      ::Positron::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define CORE_WARN(...)      ::Positron::Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define CORE_ERROR(...)     ::Positron::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define CORE_CRITICAL(...)  ::Positron::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 // Client log macros
 #define LOG_TRACE(...)               ::Positron::Log::GetCLientLogger()->trace(__VA_ARGS__)

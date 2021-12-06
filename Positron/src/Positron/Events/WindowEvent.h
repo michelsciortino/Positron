@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Event.h"
+
 namespace Positron {
 
   class POSITRON_API WindowEvent : public Event {

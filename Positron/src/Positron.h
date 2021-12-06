@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Positron/Application.h"
-#include "Positron/Log.h"
+#include "Positron/Core/Application.h"
+#include "Positron/Core/Log.h"
 
 // ---------- Entry Point ----------
 #include "Positron/EntryPoint.h"

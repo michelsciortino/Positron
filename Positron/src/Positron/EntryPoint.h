@@ -12,5 +12,5 @@ int main(int argc, char** argv) {
 }
 
 #else
-#error Positron only supports Windows!
+#  error Positron only supports Windows!
 #endif

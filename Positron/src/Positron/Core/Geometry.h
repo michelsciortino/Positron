@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Positron/Core.h>
+#include "Core.h"
 
 namespace Positron {
   struct POSITRON_API Point2D {

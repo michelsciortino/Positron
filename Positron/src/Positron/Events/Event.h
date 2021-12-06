@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Positron/Core.h"
+#include "pch.h"
+#include "Positron/Core/Core.h"
 
 namespace Positron {
 

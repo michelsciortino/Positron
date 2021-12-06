@@ -3,6 +3,7 @@
 
 
 namespace Positron {
+
   Application::Application() {}
 
   Application::~Application() {}
