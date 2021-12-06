@@ -12,6 +12,8 @@ namespace Positron {
 
     virtual void Run();
 
+    virtual void OnEvent(Event& event);
+
     private:
     std::unique_ptr<Window> m_Window;
     bool m_Running;

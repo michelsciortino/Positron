@@ -49,7 +49,7 @@
     <ClInclude Include="src\Positron\Events\Event.h">
       <Filter>Positron\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Positron\Events\KeyEvent.h">
+    <ClInclude Include="src\Positron\Events\KeyboardEvent.h">
       <Filter>Positron\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Positron\Events\MouseEvent.h">

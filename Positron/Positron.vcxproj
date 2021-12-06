@@ -160,7 +160,7 @@
     <ClInclude Include="src\Positron\EntryPoint.h" />
     <ClInclude Include="src\Positron\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Positron\Events\Event.h" />
-    <ClInclude Include="src\Positron\Events\KeyEvent.h" />
+    <ClInclude Include="src\Positron\Events\KeyboardEvent.h" />
     <ClInclude Include="src\Positron\Events\MouseEvent.h" />
     <ClInclude Include="src\Positron\Events\WindowEvent.h" />
     <ClInclude Include="src\pch.h" />

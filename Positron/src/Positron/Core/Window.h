@@ -11,7 +11,7 @@ namespace Positron {
     uint32_t width;
     uint32_t height;
 
-    WindowProps(const std::string& title = "Positron Engine", uint32_t width = 1600, uint32_t height = 900) :
+    WindowProps(const std::string& title = "Positron Engine", uint32_t width = 800, uint32_t height = 600) :
       title(title),
       width(width),
       height(height) {}
