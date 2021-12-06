@@ -39,21 +39,98 @@ namespace Positron {
     unsigned int m_Width, m_Height;
   };
 
-  class POSITRON_API WindowFocusEvent : public WindowEvent {
+  class POSITRON_API WindowFocusedEvent : public WindowEvent {
     public:
-    WindowFocusEvent() {}
+    WindowFocusedEvent() {}
 
-    inline std::string ToString() const override GET(F("WindowFocusEvent"));
+    inline std::string ToString() const override GET("WindowFocusEvent");
 
     EVENT_CLASS_TYPE(EventType::WindowFocus)
   };
 
+  class POSITRON_API WindowLostFocusEvent : public WindowEvent {
+    public:
+    WindowLostFocusEvent() {}
+
+    inline std::string ToString() const override GET("WindowLostFocusEvent");
+
+    EVENT_CLASS_TYPE(EventType::WindowLostFocus)
+  };
+
   class POSITRON_API WindowMovedEvent : public WindowEvent {
     public:
-    WindowMovedEvent() {}
+    WindowMovedEvent(int xpos, int ypos) : m_Xpos(xpos), m_Ypos(ypos) {}
 
-    inline std::string ToString() const override GET(F("WindowMovedEvent"));
+    inline int GetXpos() const GET(m_Xpos);
 
-    EVENT_CLASS_TYPE(EventType::WindowMoved)
+    inline int GetYpos() const GET(m_Ypos);
+
+    inline std::string ToString() const override GET(F("WindowMovedEvent: ({}, {})", m_Xpos, m_Ypos));
+
+    EVENT_CLASS_TYPE(EventType::WindowMoved);
+
+    private:
+    int m_Xpos, m_Ypos;
+  };
+
+  class POSITRON_API WindowRefreshedEvent : public WindowEvent {
+    public:
+    WindowRefreshedEvent() {}
+
+    inline std::string ToString() const override GET(F("WindowRefreshedEvent"));
+
+    EVENT_CLASS_TYPE(EventType::WindowRefreshed)
+  };
+
+  class POSITRON_API WindowIconifiedEvent : public WindowEvent {
+    public:
+    WindowIconifiedEvent() {}
+
+    inline std::string ToString() const override GET(F("WindowIconifiedEvent"));
+
+    EVENT_CLASS_TYPE(EventType::WindowIconfied)
+  };
+
+  class POSITRON_API WindowUniconifiedEvent : public WindowEvent {
+    public:
+    WindowUniconifiedEvent() {}
+
+    inline std::string ToString() const override GET(F("WindowUniconifiedEvent"));
+
+    EVENT_CLASS_TYPE(EventType::WindowUniconified)
+  };
+
+  class POSITRON_API WindowMaximizedEvent : public WindowEvent {
+    public:
+    WindowMaximizedEvent() {}
+
+    inline std::string ToString() const override GET(F("WindowMaximizedEvent"));
+
+    EVENT_CLASS_TYPE(EventType::WindowMaximized)
+  };
+
+  class POSITRON_API WindowUnmaximizedEvent : public WindowEvent {
+    public:
+    WindowUnmaximizedEvent() {}
+
+    inline std::string ToString() const override GET(F("WindowUnmaximizedEvent"));
+
+    EVENT_CLASS_TYPE(EventType::WindowUnmaximized)
+  };
+
+  class POSITRON_API WindowContentScaledEvent : public WindowEvent {
+    public:
+    WindowContentScaledEvent(float xScale, float yScale) : m_XScale(xScale), m_YScale(yScale) {}
+
+    inline float GetXScale() const GET(m_XScale);
+
+    inline float GetYScale() const GET(m_YScale);
+
+    inline std::string ToString() const override GET(F("WindowContentScaledEvent: ({}, {})", m_XScale, m_YScale));
+
+    EVENT_CLASS_TYPE(EventType::WindowUnmaximized)
+
+    private:
+    float m_XScale, m_YScale;
   };
 }

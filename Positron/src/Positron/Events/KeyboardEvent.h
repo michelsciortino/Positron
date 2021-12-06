@@ -11,37 +11,35 @@ namespace Positron {
 
     inline Input::InputCode GetKeyCode() const GET(m_KeyCode);
 
+    inline int GetRepeatCount() const GET(m_RepeatCount);
+
     EVENT_CLASS_CATEGORY(EventCategoryInput | EventCategoryKeyboard)
 
     protected:
-    KeyboardEvent(Input::InputCode code) : m_KeyCode(code) {}
+    KeyboardEvent(Input::InputCode code, int repeatCount) :
+      m_KeyCode(code),
+      m_RepeatCount(repeatCount) {}
 
     Input::InputCode m_KeyCode;
+    int m_RepeatCount;
   };
 
   class POSITRON_API KeyDownEvent : public KeyboardEvent {
 
     public:
-    KeyDownEvent(Input::InputCode code, int repeatCount) :
-      KeyboardEvent(code),
-      m_RepeatCount(repeatCount) {}
+    KeyDownEvent(Input::InputCode code, int repeatCount) : KeyboardEvent(code, repeatCount) {}
 
     inline std::string ToString() const override GET(F("KeyDownEvent: key {} ({} repeats)", m_KeyCode, m_RepeatCount));
 
-    inline int GetRepeatCount() const GET(m_RepeatCount);
-
     EVENT_CLASS_TYPE(EventType::KeyDown)
-
-    private:
-    int m_RepeatCount;
   };
 
   class POSITRON_API KeyUpEvent : public KeyboardEvent {
 
     public:
-    KeyUpEvent(int keycode) : KeyboardEvent(keycode) {}
+    KeyUpEvent(Input::InputCode code, int repeatCount) : KeyboardEvent(code, repeatCount) {}
 
-    inline std::string ToString() const override GET(F("KeyUpEvent: key {}", m_KeyCode));
+    inline std::string ToString() const override GET(F("KeyUpEvent: key {} ({} repeats)", m_KeyCode, m_RepeatCount));
 
     EVENT_CLASS_TYPE(EventType::KeyUp)
   };

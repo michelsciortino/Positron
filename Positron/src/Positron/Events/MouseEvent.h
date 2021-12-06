@@ -10,14 +10,15 @@ namespace Positron {
 
     public:
 
-    inline Point2D GetPosition() const GET(m_Point);
+    inline double GetXpos() const GET(m_Xpos);
+    inline double GetYpos() const GET(m_Ypos);
 
     EVENT_CLASS_CATEGORY(EventCategoryInput | EventCategoryMouse)
 
     protected:
-    MouseEvent(Point2D point) : m_Point(point) {}
+    MouseEvent(double xpos, double ypos) : m_Xpos(xpos), m_Ypos(ypos) {}
 
-    Point2D m_Point;
+    double m_Xpos, m_Ypos;
   };
 
   class POSITRON_API MouseButtonEvent : public MouseEvent {
@@ -29,7 +30,7 @@ namespace Positron {
     EVENT_CLASS_CATEGORY(EventCategoryInput | EventCategoryMouse | EventCategoryMouseButton)
 
     protected:
-    MouseButtonEvent(Input::InputCode code, Point2D point) : MouseEvent(point), m_buttonCode(code) {}
+    MouseButtonEvent(Input::InputCode code, double xpos, double ypos) : MouseEvent(xpos, ypos), m_buttonCode(code) {}
 
     Input::InputCode m_buttonCode;
   };
@@ -38,9 +39,9 @@ namespace Positron {
   class POSITRON_API MouseDownEvent : public MouseButtonEvent {
 
     public:
-    MouseDownEvent(Input::InputCode code, Point2D point) : MouseButtonEvent(code, point) {}
+    MouseDownEvent(Input::InputCode code, double xpos, double ypos) : MouseButtonEvent(code, xpos, ypos) {}
 
-    inline std::string ToString() const override GET(F("MouseDownEvent: button {}, point {}", m_buttonCode, m_Point));
+    inline std::string ToString() const override GET(F("MouseDownEvent: button {}, point ({:.1f}, {:.1f})", m_buttonCode, m_Xpos, m_Ypos));
 
     EVENT_CLASS_TYPE(EventType::MouseButtonDown)
   };
@@ -49,9 +50,9 @@ namespace Positron {
   class POSITRON_API MouseUpEvent : public MouseButtonEvent {
 
     public:
-    MouseUpEvent(Input::InputCode code, Point2D point) : MouseButtonEvent(code, point) {}
+    MouseUpEvent(Input::InputCode code, double xpos, double ypos) : MouseButtonEvent(code, xpos, ypos) {}
 
-    inline std::string ToString() const override GET(F("MouseUpEvent: button {}, point {}", m_buttonCode, m_Point));
+    inline std::string ToString() const override GET(F("MouseUpEvent: button {}, point ({:.1f}, {:.1f})", m_buttonCode, m_Xpos, m_Ypos));
 
     EVENT_CLASS_TYPE(EventType::MouseButtonUp)
   };
@@ -60,9 +61,9 @@ namespace Positron {
   class POSITRON_API MouseMovedEvent : public MouseEvent {
 
     public:
-    MouseMovedEvent(Point2D point) : MouseEvent(point) {}
+    MouseMovedEvent(double xpos, double ypos) : MouseEvent(xpos, ypos) {}
 
-    inline std::string ToString() const override GET(F("MouseMovedEvent: point {}", m_Point));
+    inline std::string ToString() const override GET(F("MouseMovedEvent: point ({:.1f}, {:.1f})", m_Xpos, m_Ypos));
 
     EVENT_CLASS_TYPE(EventType::MouseMoved)
   };
@@ -70,15 +71,17 @@ namespace Positron {
   class POSITRON_API MouseScrolledEvent : public MouseEvent {
 
     public:
-    MouseScrolledEvent(Vector2D offset, Point2D point) : MouseEvent(point), m_Offset(offset) {}
+    MouseScrolledEvent(double xoffset, double yoffset, double xpos, double ypos) : MouseEvent(xpos, ypos), m_Xoffset(xoffset), m_Yoffset(yoffset) {}
 
-    inline std::string ToString() const override GET(F("MouseScrolledEvent: offset {}, point {}", m_Offset, m_Point));
+    inline double GetXoffset() const GET(m_Xoffset);
 
-    inline Vector2D GetOffset() const GET(m_Offset);
+    inline double GetYoffset() const GET(m_Yoffset);
+
+    inline std::string ToString() const override GET(F("MouseScrolledEvent: offset ({:.1f}, {:.1f}), point ({:.1f}, {:.1f})", m_Xoffset, m_Yoffset, m_Xpos, m_Ypos));
 
     EVENT_CLASS_TYPE(EventType::MouseScrolled)
 
     private:
-    Vector2D m_Offset;
+    double m_Xoffset, m_Yoffset;
   };
 }

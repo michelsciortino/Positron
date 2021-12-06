@@ -8,7 +8,7 @@ namespace Positron {
   enum class EventType {
     None = 0,
     AppTick, AppUpdate, AppRender,
-    WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
+    WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved, WindowRefreshed, WindowIconfied, WindowUniconified, WindowMaximized, WindowUnmaximized,
     KeyDown, KeyUp,
     MouseButtonDown, MouseButtonUp, MouseMoved, MouseScrolled
   };
@@ -31,6 +31,7 @@ namespace Positron {
   #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
   class POSITRON_API Event {
+    friend class EventDispatcher;
 
     public:
     virtual EventType GetEventType() const = 0;
@@ -53,7 +54,7 @@ namespace Positron {
 
     template<typename T, typename F>
     bool Dispatch(const F& func) {
-      if(m_Event.GetEventType() == T::GetEventType()) {
+      if(m_Event.GetEventType() == T::GetStaticType()) {
         m_Event.m_Handled |= func(static_cast<T&>(m_Event));
         return true;
       }
