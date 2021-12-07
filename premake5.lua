@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Positron/vendor/GLFW/include"
+IncludeDir["Glad"] = "Positron/vendor/Glad/include"
 
 include "Positron/vendor/GLFW"
+include "Positron/vendor/Glad"
 
 project "Positron"
 	location "Positron"
@@ -38,12 +40,19 @@ project "Positron"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
 	}
 
 	links
 	{
 		"GLFW",
+		"GLAD",
 		"opengl32.lib"
+	}
+
+	defines
+	{
+		"GLFW_INCLUDE_NONE"
 	}
 
 	filter "system:windows"

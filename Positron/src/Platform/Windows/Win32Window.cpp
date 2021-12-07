@@ -34,6 +34,7 @@ namespace Positron {
     CORE_INFO("Creating window {} ({}, {})", props.title, props.width, props.height);
 
     if(!s_GLFWInitialized) {
+      // Initializing GLFW
       int result = glfwInit();
       CORE_ASSERT(result, "Error: could not initialize GLFW!");
       glfwSetErrorCallback(GLFWErrorCallback);
@@ -41,7 +42,14 @@ namespace Positron {
     }
 
     m_Window = glfwCreateWindow(m_Data.width, m_Data.height, m_Data.title.c_str(), nullptr, nullptr);
+    // Creating a GLFW Context
     glfwMakeContextCurrent(m_Window);
+
+    // Initializing Glad Loader
+    int result = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+    CORE_ASSERT(ret, "Failed to initialize Glad!");
+
+    // Linking GLFW Window to m_Data
     glfwSetWindowUserPointer(m_Window, &m_Data);
     SetVSync(true);
 
