@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cstdint>
+#include <deque>
 #include <format>
 #include <functional>
 #include <iostream>
@@ -15,5 +16,5 @@
 #include <Positron/Core/Log.h>
 
 #ifdef POSITRON_PLATFORM_WINDOWS
-  #include <Windows.h>
+#  include <Windows.h>
 #endif // POSITRON_PLATFORM_WINDOWS

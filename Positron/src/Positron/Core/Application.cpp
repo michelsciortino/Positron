@@ -24,7 +24,12 @@ namespace Positron {
     switch(event.GetEventType()) {
       case  EventType::WindowClose:
         m_Running = false;
-        break;
+        return;
     }
+
+    // Broadcasting event to layers
+    for(auto it = m_LayerStack.begin(); !event.handled && it != m_LayerStack.end(); ++it)
+      (*it)->OnEvent(event);
+
   }
 }

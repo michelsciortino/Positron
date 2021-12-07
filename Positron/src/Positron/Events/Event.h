@@ -31,9 +31,9 @@ namespace Positron {
   #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
   class POSITRON_API Event {
-    friend class EventDispatcher;
-
     public:
+    bool handled = false;
+
     virtual EventType GetEventType() const = 0;
     virtual const char* GetName() const = 0;
     virtual int GetCategoryFlags() const = 0;
@@ -42,9 +42,6 @@ namespace Positron {
     inline bool IsInCategory(EventCategory category) {
       return GetCategoryFlags() & category;
     }
-
-    protected:
-    bool m_Handled = false;
   };
 
   class EventDispatcher {
@@ -55,7 +52,7 @@ namespace Positron {
     template<typename T, typename F>
     bool Dispatch(const F& func) {
       if(m_Event.GetEventType() == T::GetStaticType()) {
-        m_Event.m_Handled |= func(static_cast<T&>(m_Event));
+        m_Event.handled |= func(static_cast<T&>(m_Event));
         return true;
       }
       return false;
