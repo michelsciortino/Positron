@@ -83,7 +83,8 @@
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -109,6 +110,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -135,6 +137,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -155,6 +158,8 @@
     <ClInclude Include="src\Positron\Core\Core.h" />
     <ClInclude Include="src\Positron\Core\Geometry.h" />
     <ClInclude Include="src\Positron\Core\InputCodes.h" />
+    <ClInclude Include="src\Positron\Core\Layer.h" />
+    <ClInclude Include="src\Positron\Core\LayerStack.h" />
     <ClInclude Include="src\Positron\Core\Log.h" />
     <ClInclude Include="src\Positron\Core\Window.h" />
     <ClInclude Include="src\Positron\EntryPoint.h" />
@@ -168,6 +173,7 @@
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\Win32Window.cpp" />
     <ClCompile Include="src\Positron\Core\Application.cpp" />
+    <ClCompile Include="src\Positron\Core\LayerStack.cpp" />
     <ClCompile Include="src\Positron\Core\Log.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

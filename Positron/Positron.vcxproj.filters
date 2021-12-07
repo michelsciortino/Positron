@@ -34,6 +34,12 @@
     <ClInclude Include="src\Positron\Core\InputCodes.h">
       <Filter>Positron\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Positron\Core\Layer.h">
+      <Filter>Positron\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Positron\Core\LayerStack.h">
+      <Filter>Positron\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Positron\Core\Log.h">
       <Filter>Positron\Core</Filter>
     </ClInclude>
@@ -65,6 +71,9 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Positron\Core\Application.cpp">
+      <Filter>Positron\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Positron\Core\LayerStack.cpp">
       <Filter>Positron\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Positron\Core\Log.cpp">
